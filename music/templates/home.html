@@ -1,1 +1,9 @@
-#Band-list page
+<h1>All Bands</h1>
+
+<ul>
+    {% for band in object_list %}
+    <li>
+        <a href="{% url 'artist_detail' band.id %}">{{ band.name }}</a>
+    </li>
+    {% endfor %}
+</ul>

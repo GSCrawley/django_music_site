@@ -8,13 +8,13 @@ class BandListView(ListView):
     template_name= 'home.html'
     context_object_name = 'bands'
 
-    def artist_detail(self, request, artist_id):
-        albums = Album.objects.filter(artist__id=artist_id)
-        artist = Band.objects.get(id=artist_id)
+    def artist_detail(self, request, band_id):
+        albums = Album.objects.filter(band__id=band_id)
+        artist = Band.objects.get(id=band_id)
     
         context = {
             'albums': albums,
-            'artist': artist
+            'bands': artist
     }
         return render(request, 'artist_detail.html', context)
 
@@ -24,8 +24,8 @@ class BandListView(ListView):
     # albums = Album.objects.filter(artist__name='artist_name')
 
         context = {
-         'albums': albums, 
-         'songs': songs
+         'album': albums, 
+         'song': songs
     }
         return render(request, 'album_detail.html',context)
 
