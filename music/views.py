@@ -8,31 +8,33 @@ class BandListView(ListView):
     template_name= 'home.html'
     context_object_name = 'bands'
 
-    def artist_detail(self, request, band_id):
-        albums = Album.objects.filter(band__id=band_id)
-        artist = Band.objects.get(id=band_id)
-    
-        context = {
-            'albums': albums,
-            'bands': artist
-    }
-        return render(request, 'artist_detail.html', context)
+def artist_detail(request, band_id):
+    albums = Album.objects.filter(band__id=band_id)
+    artist = Band.objects.get(id=band_id)
+    band_members = Musician.objects.get(id=)
 
-    def album_detail(self, request, album_id):
-        albums = Album.objects.get(id=album_id)
-        songs = Song.objects.filter(album=album_id)
-    # albums = Album.objects.filter(artist__name='artist_name')
 
-        context = {
-         'album': albums, 
-         'song': songs
-    }
-        return render(request, 'album_detail.html',context)
+    context = {
+        'albums': albums,
+        'bands': artist
+}
+    return render(request, 'artist_detail.html', context)
 
-    def song_detail(self, request, song_id):
-        songs = Song.objects.get(id=song_id)
+def album_detail(request, album_id):
+    albums = Album.objects.get(id=album_id)
+    songs = Song.objects.filter(album=album_id)
+    albums = Album.objects.filter(artist__name='artist_name')
 
-        context = {
-            'song' : songs
-    }
-        return render(request, 'song_detail.html', context)
+    context = {
+        'album': albums, 
+        'song': songs
+}
+    return render(request, 'album_detail.html',context)
+
+def song_detail(request, song_id):
+    songs = Song.objects.get(id=song_id)
+
+    context = {
+        'song' : songs
+}
+    return render(request, 'song_detail.html', context)
