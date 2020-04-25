@@ -23,7 +23,7 @@ class Song(models.Model):
 
 class Album(models.Model):
     name = models.CharField(max_length=100)
-    artist = models.ForeignKey(Band, on_delete=models.CASCADE, blank=True, null=True)
+    band = models.ForeignKey(Band, on_delete=models.CASCADE, blank=True, null=True)
     genre = models.CharField(max_length=50)
     publish_date = models.DateField(blank=True, null=True)
 

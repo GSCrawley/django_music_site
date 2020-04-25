@@ -1,10 +1,15 @@
-<h1>Album Details for {{ albums.name }}</h1>
 
+<!-- {% for album in albums %} -->
+{% for song in songs %}
 
-<h2>Released: {{ albums.released }}</h2>
+<h1>Album Details for {{ album.name }}</h1>
+
+<h2>Released: {{ album.released }}</h2>
+
 <h2>Songs List</h2>
 <ul>
-    {% for song in songs %}
+   
     <li><a href="{% url 'song_detail' song.id  %}">{{ song.name }}</a></li>
     {% endfor %}
+    <!-- {% endfor %} -->
 </ul>
