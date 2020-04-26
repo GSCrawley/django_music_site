@@ -1,4 +1,3 @@
-<h1>{{ album.name }}</h1>
 <h3>Song List for {{ album.name }}</h3>
 <ol>
     {% for song in song %}
@@ -6,4 +5,5 @@
         <a>{{ song.name }}</a>
     </li>
     {% endfor %}
+
 </ol>
